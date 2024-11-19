@@ -1,0 +1,390 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "fasm",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_source_line"
+      }
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": ";.*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_end"
+        }
+      ]
+    },
+    "_line_end": {
+      "type": "PATTERN",
+      "value": "\\r?\\n"
+    },
+    "_source_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_statement"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "\\"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_end"
+        }
+      ]
+    },
+    "_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "instruction"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "data_definition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "label"
+        }
+      ]
+    },
+    "_directive": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "format_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "section_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "control_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "prepoc_directive"
+        }
+      ]
+    },
+    "instruction": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "actual_instruction"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "operands"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "data_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "data_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "value"
+        }
+      ]
+    },
+    "label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ":"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "format_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "format"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_valid_format"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_valid_format_suffix"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "section_directive": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "section"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\".*\""
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_segment_flags"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "segment"
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_segment_flags"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "control_directive": {
+      "type": "PATTERN",
+      "value": "control"
+    },
+    "prepoc_directive": {
+      "type": "PATTERN",
+      "value": "prepoc"
+    },
+    "actual_instruction": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "mov"
+        },
+        {
+          "type": "STRING",
+          "value": "movsx"
+        },
+        {
+          "type": "STRING",
+          "value": "movzx"
+        }
+      ]
+    },
+    "operands": {
+      "type": "SYMBOL",
+      "name": "identifier_or_registers"
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-z]+"
+    },
+    "data_directive": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "db"
+        },
+        {
+          "type": "STRING",
+          "value": "dw"
+        },
+        {
+          "type": "STRING",
+          "value": "dd"
+        },
+        {
+          "type": "STRING",
+          "value": "dq"
+        },
+        {
+          "type": "STRING",
+          "value": "dt"
+        }
+      ]
+    },
+    "value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        }
+      ]
+    },
+    "_valid_format": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ELF"
+        },
+        {
+          "type": "STRING",
+          "value": "ELF32"
+        }
+      ]
+    },
+    "_valid_format_suffix": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "executable"
+        },
+        {
+          "type": "STRING",
+          "value": "COFF"
+        }
+      ]
+    },
+    "_segment_flags": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "readable"
+        },
+        {
+          "type": "STRING",
+          "value": "writeable"
+        },
+        {
+          "type": "STRING",
+          "value": "executable"
+        }
+      ]
+    },
+    "identifier_or_registers": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_registers"
+        }
+      ]
+    },
+    "_registers": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "al"
+        },
+        {
+          "type": "STRING",
+          "value": "ah"
+        },
+        {
+          "type": "STRING",
+          "value": "bl"
+        },
+        {
+          "type": "STRING",
+          "value": "bh"
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    },
+    {
+      "type": "PATTERN",
+      "value": "\\s|\\r?\\n"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}

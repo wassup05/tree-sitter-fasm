@@ -1,0 +1,273 @@
+[
+  {
+    "type": "actual_instruction",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "data_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "data_directive",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "data_directive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "format_directive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "identifier_or_registers",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "instruction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "actual_instruction",
+          "named": true
+        },
+        {
+          "type": "operands",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operands",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier_or_registers",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "section_directive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "control_directive",
+          "named": true
+        },
+        {
+          "type": "data_definition",
+          "named": true
+        },
+        {
+          "type": "format_directive",
+          "named": true
+        },
+        {
+          "type": "instruction",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "prepoc_directive",
+          "named": true
+        },
+        {
+          "type": "section_directive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "COFF",
+    "named": false
+  },
+  {
+    "type": "ELF",
+    "named": false
+  },
+  {
+    "type": "ELF32",
+    "named": false
+  },
+  {
+    "type": "\\",
+    "named": false
+  },
+  {
+    "type": "ah",
+    "named": false
+  },
+  {
+    "type": "al",
+    "named": false
+  },
+  {
+    "type": "bh",
+    "named": false
+  },
+  {
+    "type": "bl",
+    "named": false
+  },
+  {
+    "type": "control_directive",
+    "named": true
+  },
+  {
+    "type": "db",
+    "named": false
+  },
+  {
+    "type": "dd",
+    "named": false
+  },
+  {
+    "type": "dq",
+    "named": false
+  },
+  {
+    "type": "dt",
+    "named": false
+  },
+  {
+    "type": "dw",
+    "named": false
+  },
+  {
+    "type": "executable",
+    "named": false
+  },
+  {
+    "type": "format",
+    "named": false
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "mov",
+    "named": false
+  },
+  {
+    "type": "movsx",
+    "named": false
+  },
+  {
+    "type": "movzx",
+    "named": false
+  },
+  {
+    "type": "prepoc_directive",
+    "named": true
+  },
+  {
+    "type": "readable",
+    "named": false
+  },
+  {
+    "type": "section",
+    "named": false
+  },
+  {
+    "type": "segment",
+    "named": false
+  },
+  {
+    "type": "writeable",
+    "named": false
+  }
+]
