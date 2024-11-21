@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-fasm",
   "version": "0.1.0",
-  "description": "tree-sitter parser for the FASM assembler.",
+  "description": "FASM grammar for tree-sitter",
   "repository": "github:tree-sitter/tree-sitter-fasm",
   "license": "MIT",
   "author": {

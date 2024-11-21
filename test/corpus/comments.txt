@@ -1,0 +1,26 @@
+================
+only comments
+================
+
+; This is a comment
+; This is too.
+
+----------------
+
+(source_file
+	(comment)
+	(comment))
+
+============================
+comments with source code
+============================
+
+format ELF ; This is a comment beside a source line
+; a normal comment
+
+----------------------------
+
+(source_file
+	(format_directive)
+	(comment)
+	(comment))

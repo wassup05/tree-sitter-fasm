@@ -10,17 +10,8 @@
       }
     },
     "comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": ";.*"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_line_end"
-        }
-      ]
+      "type": "PATTERN",
+      "value": ";.*"
     },
     "_line_end": {
       "type": "PATTERN",
@@ -105,6 +96,18 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "_size_indicators"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
               "name": "operands"
             },
             {
@@ -114,12 +117,113 @@
         }
       ]
     },
+    "_size_indicators": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "byte"
+        },
+        {
+          "type": "STRING",
+          "value": "word"
+        },
+        {
+          "type": "STRING",
+          "value": "dword"
+        },
+        {
+          "type": "STRING",
+          "value": "qword"
+        },
+        {
+          "type": "STRING",
+          "value": "tbyte"
+        },
+        {
+          "type": "STRING",
+          "value": "tword"
+        },
+        {
+          "type": "STRING",
+          "value": "dqword"
+        },
+        {
+          "type": "STRING",
+          "value": "xword"
+        },
+        {
+          "type": "STRING",
+          "value": "qqword"
+        },
+        {
+          "type": "STRING",
+          "value": "yword"
+        },
+        {
+          "type": "STRING",
+          "value": "dqqword"
+        },
+        {
+          "type": "STRING",
+          "value": "zword"
+        },
+        {
+          "type": "STRING",
+          "value": "BYTE"
+        },
+        {
+          "type": "STRING",
+          "value": "WORD"
+        },
+        {
+          "type": "STRING",
+          "value": "DWORD"
+        },
+        {
+          "type": "STRING",
+          "value": "QWORD"
+        },
+        {
+          "type": "STRING",
+          "value": "TBYTE"
+        },
+        {
+          "type": "STRING",
+          "value": "TWORD"
+        },
+        {
+          "type": "STRING",
+          "value": "DQWORD"
+        },
+        {
+          "type": "STRING",
+          "value": "XWORD"
+        },
+        {
+          "type": "STRING",
+          "value": "QQWORD"
+        },
+        {
+          "type": "STRING",
+          "value": "YWORD"
+        },
+        {
+          "type": "STRING",
+          "value": "DQQWORD"
+        },
+        {
+          "type": "STRING",
+          "value": "ZWORD"
+        }
+      ]
+    },
     "data_definition": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "label"
         },
         {
           "type": "SYMBOL",
@@ -156,8 +260,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "format"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "format"
+            },
+            {
+              "type": "STRING",
+              "value": "FORMAT"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -174,6 +287,18 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_integer"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -184,24 +309,37 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "STRING",
-              "value": "section"
-            },
-            {
-              "type": "PATTERN",
-              "value": "\".*\""
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "section"
+                },
+                {
+                  "type": "STRING",
+                  "value": "SECTION"
+                }
+              ]
             },
             {
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "_segment_flags"
+                  "type": "PATTERN",
+                  "value": "\".*\""
                 },
                 {
-                  "type": "BLANK"
+                  "type": "PATTERN",
+                  "value": "'.*'"
                 }
               ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_segment_flags"
+              }
             }
           ]
         },
@@ -209,8 +347,17 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "STRING",
-              "value": "segment"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "segment"
+                },
+                {
+                  "type": "STRING",
+                  "value": "SEGMENT"
+                }
+              ]
             },
             {
               "type": "REPEAT1",
@@ -236,7 +383,71 @@
       "members": [
         {
           "type": "STRING",
+          "value": "syscall"
+        },
+        {
+          "type": "STRING",
+          "value": "aaa"
+        },
+        {
+          "type": "STRING",
+          "value": "aad"
+        },
+        {
+          "type": "STRING",
+          "value": "aam"
+        },
+        {
+          "type": "STRING",
+          "value": "add"
+        },
+        {
+          "type": "STRING",
+          "value": "sub"
+        },
+        {
+          "type": "STRING",
+          "value": "mul"
+        },
+        {
+          "type": "STRING",
+          "value": "imul"
+        },
+        {
+          "type": "STRING",
+          "value": "div"
+        },
+        {
+          "type": "STRING",
+          "value": "idiv"
+        },
+        {
+          "type": "STRING",
           "value": "mov"
+        },
+        {
+          "type": "STRING",
+          "value": "movb"
+        },
+        {
+          "type": "STRING",
+          "value": "movw"
+        },
+        {
+          "type": "STRING",
+          "value": "movd"
+        },
+        {
+          "type": "STRING",
+          "value": "movq"
+        },
+        {
+          "type": "STRING",
+          "value": "movt"
+        },
+        {
+          "type": "STRING",
+          "value": "movzx"
         },
         {
           "type": "STRING",
@@ -244,7 +455,147 @@
         },
         {
           "type": "STRING",
-          "value": "movzx"
+          "value": "movdir64b"
+        },
+        {
+          "type": "STRING",
+          "value": "shufps"
+        },
+        {
+          "type": "STRING",
+          "value": "or"
+        },
+        {
+          "type": "STRING",
+          "value": "and"
+        },
+        {
+          "type": "STRING",
+          "value": "not"
+        },
+        {
+          "type": "STRING",
+          "value": "xor"
+        },
+        {
+          "type": "STRING",
+          "value": "pxor"
+        },
+        {
+          "type": "STRING",
+          "value": "addps"
+        },
+        {
+          "type": "STRING",
+          "value": "mulps"
+        },
+        {
+          "type": "STRING",
+          "value": "SYSCALL"
+        },
+        {
+          "type": "STRING",
+          "value": "AAA"
+        },
+        {
+          "type": "STRING",
+          "value": "AAD"
+        },
+        {
+          "type": "STRING",
+          "value": "AAM"
+        },
+        {
+          "type": "STRING",
+          "value": "ADD"
+        },
+        {
+          "type": "STRING",
+          "value": "SUB"
+        },
+        {
+          "type": "STRING",
+          "value": "MUL"
+        },
+        {
+          "type": "STRING",
+          "value": "IMUL"
+        },
+        {
+          "type": "STRING",
+          "value": "DIV"
+        },
+        {
+          "type": "STRING",
+          "value": "IDIV"
+        },
+        {
+          "type": "STRING",
+          "value": "MOV"
+        },
+        {
+          "type": "STRING",
+          "value": "MOVB"
+        },
+        {
+          "type": "STRING",
+          "value": "MOVW"
+        },
+        {
+          "type": "STRING",
+          "value": "MOVD"
+        },
+        {
+          "type": "STRING",
+          "value": "MOVQ"
+        },
+        {
+          "type": "STRING",
+          "value": "MOVT"
+        },
+        {
+          "type": "STRING",
+          "value": "MOVZX"
+        },
+        {
+          "type": "STRING",
+          "value": "MOVSX"
+        },
+        {
+          "type": "STRING",
+          "value": "MOVDIR64B"
+        },
+        {
+          "type": "STRING",
+          "value": "SHUFPS"
+        },
+        {
+          "type": "STRING",
+          "value": "OR"
+        },
+        {
+          "type": "STRING",
+          "value": "AND"
+        },
+        {
+          "type": "STRING",
+          "value": "NOT"
+        },
+        {
+          "type": "STRING",
+          "value": "XOR"
+        },
+        {
+          "type": "STRING",
+          "value": "PXOR"
+        },
+        {
+          "type": "STRING",
+          "value": "ADDPS"
+        },
+        {
+          "type": "STRING",
+          "value": "MULPS"
         }
       ]
     },
@@ -254,7 +605,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-z]+"
+      "value": "[a-zA-Z][a-zA-Z0-9]*"
     },
     "data_directive": {
       "type": "CHOICE",
@@ -278,6 +629,26 @@
         {
           "type": "STRING",
           "value": "dt"
+        },
+        {
+          "type": "STRING",
+          "value": "DB"
+        },
+        {
+          "type": "STRING",
+          "value": "DW"
+        },
+        {
+          "type": "STRING",
+          "value": "DD"
+        },
+        {
+          "type": "STRING",
+          "value": "DQ"
+        },
+        {
+          "type": "STRING",
+          "value": "DT"
         }
       ]
     },
@@ -289,21 +660,57 @@
           "name": "identifier"
         },
         {
-          "type": "PATTERN",
-          "value": "\\d+"
+          "type": "SYMBOL",
+          "name": "_integer"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_floats"
         }
       ]
+    },
+    "_floats": {
+      "type": "PATTERN",
+      "value": "\\d*\\.?\\d+"
+    },
+    "_integer": {
+      "type": "PATTERN",
+      "value": "\\d+"
     },
     "_valid_format": {
       "type": "CHOICE",
       "members": [
         {
           "type": "STRING",
+          "value": "elf"
+        },
+        {
+          "type": "STRING",
+          "value": "elf64"
+        },
+        {
+          "type": "STRING",
+          "value": "bin"
+        },
+        {
+          "type": "STRING",
+          "value": "ms coff"
+        },
+        {
+          "type": "STRING",
           "value": "ELF"
         },
         {
           "type": "STRING",
-          "value": "ELF32"
+          "value": "ELF64"
+        },
+        {
+          "type": "STRING",
+          "value": "BIN"
+        },
+        {
+          "type": "STRING",
+          "value": "MS COFF"
         }
       ]
     },
@@ -316,7 +723,7 @@
         },
         {
           "type": "STRING",
-          "value": "COFF"
+          "value": "EXECUTABLE"
         }
       ]
     },
@@ -334,6 +741,18 @@
         {
           "type": "STRING",
           "value": "executable"
+        },
+        {
+          "type": "STRING",
+          "value": "READABLE"
+        },
+        {
+          "type": "STRING",
+          "value": "WRITEABLE"
+        },
+        {
+          "type": "STRING",
+          "value": "EXECUTABLE"
         }
       ]
     },
@@ -355,6 +774,122 @@
       "members": [
         {
           "type": "STRING",
+          "value": "si"
+        },
+        {
+          "type": "STRING",
+          "value": "di"
+        },
+        {
+          "type": "STRING",
+          "value": "sp"
+        },
+        {
+          "type": "STRING",
+          "value": "bp"
+        },
+        {
+          "type": "STRING",
+          "value": "eax"
+        },
+        {
+          "type": "STRING",
+          "value": "ebx"
+        },
+        {
+          "type": "STRING",
+          "value": "ecx"
+        },
+        {
+          "type": "STRING",
+          "value": "edx"
+        },
+        {
+          "type": "STRING",
+          "value": "esi"
+        },
+        {
+          "type": "STRING",
+          "value": "edi"
+        },
+        {
+          "type": "STRING",
+          "value": "esp"
+        },
+        {
+          "type": "STRING",
+          "value": "ebp"
+        },
+        {
+          "type": "STRING",
+          "value": "rax"
+        },
+        {
+          "type": "STRING",
+          "value": "rbx"
+        },
+        {
+          "type": "STRING",
+          "value": "rcx"
+        },
+        {
+          "type": "STRING",
+          "value": "rdx"
+        },
+        {
+          "type": "STRING",
+          "value": "rsi"
+        },
+        {
+          "type": "STRING",
+          "value": "rdi"
+        },
+        {
+          "type": "STRING",
+          "value": "rsp"
+        },
+        {
+          "type": "STRING",
+          "value": "rbp"
+        },
+        {
+          "type": "STRING",
+          "value": "flags"
+        },
+        {
+          "type": "STRING",
+          "value": "eflags"
+        },
+        {
+          "type": "STRING",
+          "value": "rflags"
+        },
+        {
+          "type": "STRING",
+          "value": "cs"
+        },
+        {
+          "type": "STRING",
+          "value": "ds"
+        },
+        {
+          "type": "STRING",
+          "value": "ss"
+        },
+        {
+          "type": "STRING",
+          "value": "es"
+        },
+        {
+          "type": "STRING",
+          "value": "fs"
+        },
+        {
+          "type": "STRING",
+          "value": "gs"
+        },
+        {
+          "type": "STRING",
           "value": "al"
         },
         {
@@ -363,11 +898,851 @@
         },
         {
           "type": "STRING",
+          "value": "ax"
+        },
+        {
+          "type": "STRING",
+          "value": "AL"
+        },
+        {
+          "type": "STRING",
+          "value": "AH"
+        },
+        {
+          "type": "STRING",
+          "value": "AX"
+        },
+        {
+          "type": "STRING",
           "value": "bl"
         },
         {
           "type": "STRING",
           "value": "bh"
+        },
+        {
+          "type": "STRING",
+          "value": "bx"
+        },
+        {
+          "type": "STRING",
+          "value": "BL"
+        },
+        {
+          "type": "STRING",
+          "value": "BH"
+        },
+        {
+          "type": "STRING",
+          "value": "BX"
+        },
+        {
+          "type": "STRING",
+          "value": "cl"
+        },
+        {
+          "type": "STRING",
+          "value": "ch"
+        },
+        {
+          "type": "STRING",
+          "value": "cx"
+        },
+        {
+          "type": "STRING",
+          "value": "CL"
+        },
+        {
+          "type": "STRING",
+          "value": "CH"
+        },
+        {
+          "type": "STRING",
+          "value": "CX"
+        },
+        {
+          "type": "STRING",
+          "value": "dl"
+        },
+        {
+          "type": "STRING",
+          "value": "dh"
+        },
+        {
+          "type": "STRING",
+          "value": "dx"
+        },
+        {
+          "type": "STRING",
+          "value": "DL"
+        },
+        {
+          "type": "STRING",
+          "value": "DH"
+        },
+        {
+          "type": "STRING",
+          "value": "DX"
+        },
+        {
+          "type": "STRING",
+          "value": "mm0"
+        },
+        {
+          "type": "STRING",
+          "value": "mm1"
+        },
+        {
+          "type": "STRING",
+          "value": "mm2"
+        },
+        {
+          "type": "STRING",
+          "value": "mm3"
+        },
+        {
+          "type": "STRING",
+          "value": "mm4"
+        },
+        {
+          "type": "STRING",
+          "value": "mm5"
+        },
+        {
+          "type": "STRING",
+          "value": "mm6"
+        },
+        {
+          "type": "STRING",
+          "value": "mm7"
+        },
+        {
+          "type": "STRING",
+          "value": "mm8"
+        },
+        {
+          "type": "STRING",
+          "value": "mm9"
+        },
+        {
+          "type": "STRING",
+          "value": "mm10"
+        },
+        {
+          "type": "STRING",
+          "value": "mm11"
+        },
+        {
+          "type": "STRING",
+          "value": "mm12"
+        },
+        {
+          "type": "STRING",
+          "value": "mm13"
+        },
+        {
+          "type": "STRING",
+          "value": "mm14"
+        },
+        {
+          "type": "STRING",
+          "value": "mm15"
+        },
+        {
+          "type": "STRING",
+          "value": "MM0"
+        },
+        {
+          "type": "STRING",
+          "value": "MM1"
+        },
+        {
+          "type": "STRING",
+          "value": "MM2"
+        },
+        {
+          "type": "STRING",
+          "value": "MM3"
+        },
+        {
+          "type": "STRING",
+          "value": "MM4"
+        },
+        {
+          "type": "STRING",
+          "value": "MM5"
+        },
+        {
+          "type": "STRING",
+          "value": "MM6"
+        },
+        {
+          "type": "STRING",
+          "value": "MM7"
+        },
+        {
+          "type": "STRING",
+          "value": "MM8"
+        },
+        {
+          "type": "STRING",
+          "value": "MM9"
+        },
+        {
+          "type": "STRING",
+          "value": "MM10"
+        },
+        {
+          "type": "STRING",
+          "value": "MM11"
+        },
+        {
+          "type": "STRING",
+          "value": "MM12"
+        },
+        {
+          "type": "STRING",
+          "value": "MM13"
+        },
+        {
+          "type": "STRING",
+          "value": "MM14"
+        },
+        {
+          "type": "STRING",
+          "value": "MM15"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm0"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm1"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm2"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm3"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm4"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm5"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm6"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm7"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm8"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm9"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm10"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm11"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm12"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm13"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm14"
+        },
+        {
+          "type": "STRING",
+          "value": "xmm15"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM0"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM1"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM2"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM3"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM4"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM5"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM6"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM7"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM8"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM9"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM10"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM11"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM12"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM13"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM14"
+        },
+        {
+          "type": "STRING",
+          "value": "XMM15"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm0"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm1"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm2"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm3"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm4"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm5"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm6"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm7"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm8"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm9"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm10"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm11"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm12"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm13"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm14"
+        },
+        {
+          "type": "STRING",
+          "value": "ymm15"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM0"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM1"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM2"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM3"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM4"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM5"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM6"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM7"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM8"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM9"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM10"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM11"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM12"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM13"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM14"
+        },
+        {
+          "type": "STRING",
+          "value": "YMM15"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm0"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm1"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm2"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm3"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm4"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm5"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm6"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm7"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm8"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm9"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm10"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm11"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm12"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm13"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm14"
+        },
+        {
+          "type": "STRING",
+          "value": "zmm15"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM0"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM1"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM2"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM3"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM4"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM5"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM6"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM7"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM8"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM9"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM10"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM11"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM12"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM13"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM14"
+        },
+        {
+          "type": "STRING",
+          "value": "ZMM15"
+        },
+        {
+          "type": "STRING",
+          "value": "dr0"
+        },
+        {
+          "type": "STRING",
+          "value": "dr1"
+        },
+        {
+          "type": "STRING",
+          "value": "dr2"
+        },
+        {
+          "type": "STRING",
+          "value": "dr3"
+        },
+        {
+          "type": "STRING",
+          "value": "DR0"
+        },
+        {
+          "type": "STRING",
+          "value": "DR1"
+        },
+        {
+          "type": "STRING",
+          "value": "DR2"
+        },
+        {
+          "type": "STRING",
+          "value": "DR3"
+        },
+        {
+          "type": "STRING",
+          "value": "dr6"
+        },
+        {
+          "type": "STRING",
+          "value": "dr7"
+        },
+        {
+          "type": "STRING",
+          "value": "DR6"
+        },
+        {
+          "type": "STRING",
+          "value": "DR7"
+        },
+        {
+          "type": "STRING",
+          "value": "st0"
+        },
+        {
+          "type": "STRING",
+          "value": "st1"
+        },
+        {
+          "type": "STRING",
+          "value": "st2"
+        },
+        {
+          "type": "STRING",
+          "value": "st3"
+        },
+        {
+          "type": "STRING",
+          "value": "st4"
+        },
+        {
+          "type": "STRING",
+          "value": "st5"
+        },
+        {
+          "type": "STRING",
+          "value": "st6"
+        },
+        {
+          "type": "STRING",
+          "value": "st7"
+        },
+        {
+          "type": "STRING",
+          "value": "ST0"
+        },
+        {
+          "type": "STRING",
+          "value": "ST1"
+        },
+        {
+          "type": "STRING",
+          "value": "ST2"
+        },
+        {
+          "type": "STRING",
+          "value": "ST3"
+        },
+        {
+          "type": "STRING",
+          "value": "ST4"
+        },
+        {
+          "type": "STRING",
+          "value": "ST5"
+        },
+        {
+          "type": "STRING",
+          "value": "ST6"
+        },
+        {
+          "type": "STRING",
+          "value": "ST7"
+        },
+        {
+          "type": "STRING",
+          "value": "cr0"
+        },
+        {
+          "type": "STRING",
+          "value": "CR0"
+        },
+        {
+          "type": "STRING",
+          "value": "cr2"
+        },
+        {
+          "type": "STRING",
+          "value": "cr3"
+        },
+        {
+          "type": "STRING",
+          "value": "cr4"
+        },
+        {
+          "type": "STRING",
+          "value": "CR2"
+        },
+        {
+          "type": "STRING",
+          "value": "CR3"
+        },
+        {
+          "type": "STRING",
+          "value": "CR4"
+        },
+        {
+          "type": "STRING",
+          "value": "k0"
+        },
+        {
+          "type": "STRING",
+          "value": "k1"
+        },
+        {
+          "type": "STRING",
+          "value": "k2"
+        },
+        {
+          "type": "STRING",
+          "value": "k3"
+        },
+        {
+          "type": "STRING",
+          "value": "k4"
+        },
+        {
+          "type": "STRING",
+          "value": "k5"
+        },
+        {
+          "type": "STRING",
+          "value": "k6"
+        },
+        {
+          "type": "STRING",
+          "value": "k7"
+        },
+        {
+          "type": "STRING",
+          "value": "K0"
+        },
+        {
+          "type": "STRING",
+          "value": "K1"
+        },
+        {
+          "type": "STRING",
+          "value": "K2"
+        },
+        {
+          "type": "STRING",
+          "value": "K3"
+        },
+        {
+          "type": "STRING",
+          "value": "K4"
+        },
+        {
+          "type": "STRING",
+          "value": "K5"
+        },
+        {
+          "type": "STRING",
+          "value": "K6"
+        },
+        {
+          "type": "STRING",
+          "value": "K7"
+        },
+        {
+          "type": "STRING",
+          "value": "bnd0"
+        },
+        {
+          "type": "STRING",
+          "value": "bnd1"
+        },
+        {
+          "type": "STRING",
+          "value": "bnd2"
+        },
+        {
+          "type": "STRING",
+          "value": "bnd3"
+        },
+        {
+          "type": "STRING",
+          "value": "bnd4"
+        },
+        {
+          "type": "STRING",
+          "value": "BND0"
+        },
+        {
+          "type": "STRING",
+          "value": "BND1"
+        },
+        {
+          "type": "STRING",
+          "value": "BND2"
+        },
+        {
+          "type": "STRING",
+          "value": "BND3"
+        },
+        {
+          "type": "STRING",
+          "value": "BND4"
         }
       ]
     }
@@ -379,7 +1754,7 @@
     },
     {
       "type": "PATTERN",
-      "value": "\\s|\\r?\\n"
+      "value": "\\s"
     }
   ],
   "conflicts": [],

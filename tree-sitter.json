@@ -12,7 +12,7 @@
   "metadata": {
     "version": "0.1.0",
     "license": "MIT",
-    "description": "tree-sitter parser for the FASM assembler.",
+    "description": "FASM grammar for tree-sitter",
     "authors": [
       {
         "name": "Suprit S Jahagirdar",

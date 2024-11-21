@@ -5,11 +5,6 @@
     "fields": {}
   },
   {
-    "type": "comment",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "data_definition",
     "named": true,
     "fields": {},
@@ -22,7 +17,7 @@
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "label",
           "named": true
         },
         {
@@ -171,7 +166,179 @@
     "named": false
   },
   {
-    "type": "COFF",
+    "type": "AAA",
+    "named": false
+  },
+  {
+    "type": "AAD",
+    "named": false
+  },
+  {
+    "type": "AAM",
+    "named": false
+  },
+  {
+    "type": "ADD",
+    "named": false
+  },
+  {
+    "type": "ADDPS",
+    "named": false
+  },
+  {
+    "type": "AH",
+    "named": false
+  },
+  {
+    "type": "AL",
+    "named": false
+  },
+  {
+    "type": "AND",
+    "named": false
+  },
+  {
+    "type": "AX",
+    "named": false
+  },
+  {
+    "type": "BH",
+    "named": false
+  },
+  {
+    "type": "BIN",
+    "named": false
+  },
+  {
+    "type": "BL",
+    "named": false
+  },
+  {
+    "type": "BND0",
+    "named": false
+  },
+  {
+    "type": "BND1",
+    "named": false
+  },
+  {
+    "type": "BND2",
+    "named": false
+  },
+  {
+    "type": "BND3",
+    "named": false
+  },
+  {
+    "type": "BND4",
+    "named": false
+  },
+  {
+    "type": "BX",
+    "named": false
+  },
+  {
+    "type": "BYTE",
+    "named": false
+  },
+  {
+    "type": "CH",
+    "named": false
+  },
+  {
+    "type": "CL",
+    "named": false
+  },
+  {
+    "type": "CR0",
+    "named": false
+  },
+  {
+    "type": "CR2",
+    "named": false
+  },
+  {
+    "type": "CR3",
+    "named": false
+  },
+  {
+    "type": "CR4",
+    "named": false
+  },
+  {
+    "type": "CX",
+    "named": false
+  },
+  {
+    "type": "DB",
+    "named": false
+  },
+  {
+    "type": "DD",
+    "named": false
+  },
+  {
+    "type": "DH",
+    "named": false
+  },
+  {
+    "type": "DIV",
+    "named": false
+  },
+  {
+    "type": "DL",
+    "named": false
+  },
+  {
+    "type": "DQ",
+    "named": false
+  },
+  {
+    "type": "DQQWORD",
+    "named": false
+  },
+  {
+    "type": "DQWORD",
+    "named": false
+  },
+  {
+    "type": "DR0",
+    "named": false
+  },
+  {
+    "type": "DR1",
+    "named": false
+  },
+  {
+    "type": "DR2",
+    "named": false
+  },
+  {
+    "type": "DR3",
+    "named": false
+  },
+  {
+    "type": "DR6",
+    "named": false
+  },
+  {
+    "type": "DR7",
+    "named": false
+  },
+  {
+    "type": "DT",
+    "named": false
+  },
+  {
+    "type": "DW",
+    "named": false
+  },
+  {
+    "type": "DWORD",
+    "named": false
+  },
+  {
+    "type": "DX",
     "named": false
   },
   {
@@ -179,11 +346,491 @@
     "named": false
   },
   {
-    "type": "ELF32",
+    "type": "ELF64",
+    "named": false
+  },
+  {
+    "type": "EXECUTABLE",
+    "named": false
+  },
+  {
+    "type": "FORMAT",
+    "named": false
+  },
+  {
+    "type": "IDIV",
+    "named": false
+  },
+  {
+    "type": "IMUL",
+    "named": false
+  },
+  {
+    "type": "K0",
+    "named": false
+  },
+  {
+    "type": "K1",
+    "named": false
+  },
+  {
+    "type": "K2",
+    "named": false
+  },
+  {
+    "type": "K3",
+    "named": false
+  },
+  {
+    "type": "K4",
+    "named": false
+  },
+  {
+    "type": "K5",
+    "named": false
+  },
+  {
+    "type": "K6",
+    "named": false
+  },
+  {
+    "type": "K7",
+    "named": false
+  },
+  {
+    "type": "MM0",
+    "named": false
+  },
+  {
+    "type": "MM1",
+    "named": false
+  },
+  {
+    "type": "MM10",
+    "named": false
+  },
+  {
+    "type": "MM11",
+    "named": false
+  },
+  {
+    "type": "MM12",
+    "named": false
+  },
+  {
+    "type": "MM13",
+    "named": false
+  },
+  {
+    "type": "MM14",
+    "named": false
+  },
+  {
+    "type": "MM15",
+    "named": false
+  },
+  {
+    "type": "MM2",
+    "named": false
+  },
+  {
+    "type": "MM3",
+    "named": false
+  },
+  {
+    "type": "MM4",
+    "named": false
+  },
+  {
+    "type": "MM5",
+    "named": false
+  },
+  {
+    "type": "MM6",
+    "named": false
+  },
+  {
+    "type": "MM7",
+    "named": false
+  },
+  {
+    "type": "MM8",
+    "named": false
+  },
+  {
+    "type": "MM9",
+    "named": false
+  },
+  {
+    "type": "MOV",
+    "named": false
+  },
+  {
+    "type": "MOVB",
+    "named": false
+  },
+  {
+    "type": "MOVD",
+    "named": false
+  },
+  {
+    "type": "MOVDIR64B",
+    "named": false
+  },
+  {
+    "type": "MOVQ",
+    "named": false
+  },
+  {
+    "type": "MOVSX",
+    "named": false
+  },
+  {
+    "type": "MOVT",
+    "named": false
+  },
+  {
+    "type": "MOVW",
+    "named": false
+  },
+  {
+    "type": "MOVZX",
+    "named": false
+  },
+  {
+    "type": "MS COFF",
+    "named": false
+  },
+  {
+    "type": "MUL",
+    "named": false
+  },
+  {
+    "type": "MULPS",
+    "named": false
+  },
+  {
+    "type": "NOT",
+    "named": false
+  },
+  {
+    "type": "OR",
+    "named": false
+  },
+  {
+    "type": "PXOR",
+    "named": false
+  },
+  {
+    "type": "QQWORD",
+    "named": false
+  },
+  {
+    "type": "QWORD",
+    "named": false
+  },
+  {
+    "type": "READABLE",
+    "named": false
+  },
+  {
+    "type": "SECTION",
+    "named": false
+  },
+  {
+    "type": "SEGMENT",
+    "named": false
+  },
+  {
+    "type": "SHUFPS",
+    "named": false
+  },
+  {
+    "type": "ST0",
+    "named": false
+  },
+  {
+    "type": "ST1",
+    "named": false
+  },
+  {
+    "type": "ST2",
+    "named": false
+  },
+  {
+    "type": "ST3",
+    "named": false
+  },
+  {
+    "type": "ST4",
+    "named": false
+  },
+  {
+    "type": "ST5",
+    "named": false
+  },
+  {
+    "type": "ST6",
+    "named": false
+  },
+  {
+    "type": "ST7",
+    "named": false
+  },
+  {
+    "type": "SUB",
+    "named": false
+  },
+  {
+    "type": "SYSCALL",
+    "named": false
+  },
+  {
+    "type": "TBYTE",
+    "named": false
+  },
+  {
+    "type": "TWORD",
+    "named": false
+  },
+  {
+    "type": "WORD",
+    "named": false
+  },
+  {
+    "type": "WRITEABLE",
+    "named": false
+  },
+  {
+    "type": "XMM0",
+    "named": false
+  },
+  {
+    "type": "XMM1",
+    "named": false
+  },
+  {
+    "type": "XMM10",
+    "named": false
+  },
+  {
+    "type": "XMM11",
+    "named": false
+  },
+  {
+    "type": "XMM12",
+    "named": false
+  },
+  {
+    "type": "XMM13",
+    "named": false
+  },
+  {
+    "type": "XMM14",
+    "named": false
+  },
+  {
+    "type": "XMM15",
+    "named": false
+  },
+  {
+    "type": "XMM2",
+    "named": false
+  },
+  {
+    "type": "XMM3",
+    "named": false
+  },
+  {
+    "type": "XMM4",
+    "named": false
+  },
+  {
+    "type": "XMM5",
+    "named": false
+  },
+  {
+    "type": "XMM6",
+    "named": false
+  },
+  {
+    "type": "XMM7",
+    "named": false
+  },
+  {
+    "type": "XMM8",
+    "named": false
+  },
+  {
+    "type": "XMM9",
+    "named": false
+  },
+  {
+    "type": "XOR",
+    "named": false
+  },
+  {
+    "type": "XWORD",
+    "named": false
+  },
+  {
+    "type": "YMM0",
+    "named": false
+  },
+  {
+    "type": "YMM1",
+    "named": false
+  },
+  {
+    "type": "YMM10",
+    "named": false
+  },
+  {
+    "type": "YMM11",
+    "named": false
+  },
+  {
+    "type": "YMM12",
+    "named": false
+  },
+  {
+    "type": "YMM13",
+    "named": false
+  },
+  {
+    "type": "YMM14",
+    "named": false
+  },
+  {
+    "type": "YMM15",
+    "named": false
+  },
+  {
+    "type": "YMM2",
+    "named": false
+  },
+  {
+    "type": "YMM3",
+    "named": false
+  },
+  {
+    "type": "YMM4",
+    "named": false
+  },
+  {
+    "type": "YMM5",
+    "named": false
+  },
+  {
+    "type": "YMM6",
+    "named": false
+  },
+  {
+    "type": "YMM7",
+    "named": false
+  },
+  {
+    "type": "YMM8",
+    "named": false
+  },
+  {
+    "type": "YMM9",
+    "named": false
+  },
+  {
+    "type": "YWORD",
+    "named": false
+  },
+  {
+    "type": "ZMM0",
+    "named": false
+  },
+  {
+    "type": "ZMM1",
+    "named": false
+  },
+  {
+    "type": "ZMM10",
+    "named": false
+  },
+  {
+    "type": "ZMM11",
+    "named": false
+  },
+  {
+    "type": "ZMM12",
+    "named": false
+  },
+  {
+    "type": "ZMM13",
+    "named": false
+  },
+  {
+    "type": "ZMM14",
+    "named": false
+  },
+  {
+    "type": "ZMM15",
+    "named": false
+  },
+  {
+    "type": "ZMM2",
+    "named": false
+  },
+  {
+    "type": "ZMM3",
+    "named": false
+  },
+  {
+    "type": "ZMM4",
+    "named": false
+  },
+  {
+    "type": "ZMM5",
+    "named": false
+  },
+  {
+    "type": "ZMM6",
+    "named": false
+  },
+  {
+    "type": "ZMM7",
+    "named": false
+  },
+  {
+    "type": "ZMM8",
+    "named": false
+  },
+  {
+    "type": "ZMM9",
+    "named": false
+  },
+  {
+    "type": "ZWORD",
     "named": false
   },
   {
     "type": "\\",
+    "named": false
+  },
+  {
+    "type": "aaa",
+    "named": false
+  },
+  {
+    "type": "aad",
+    "named": false
+  },
+  {
+    "type": "aam",
+    "named": false
+  },
+  {
+    "type": "add",
+    "named": false
+  },
+  {
+    "type": "addps",
     "named": false
   },
   {
@@ -195,7 +842,19 @@
     "named": false
   },
   {
+    "type": "and",
+    "named": false
+  },
+  {
+    "type": "ax",
+    "named": false
+  },
+  {
     "type": "bh",
+    "named": false
+  },
+  {
+    "type": "bin",
     "named": false
   },
   {
@@ -203,8 +862,76 @@
     "named": false
   },
   {
+    "type": "bnd0",
+    "named": false
+  },
+  {
+    "type": "bnd1",
+    "named": false
+  },
+  {
+    "type": "bnd2",
+    "named": false
+  },
+  {
+    "type": "bnd3",
+    "named": false
+  },
+  {
+    "type": "bnd4",
+    "named": false
+  },
+  {
+    "type": "bp",
+    "named": false
+  },
+  {
+    "type": "bx",
+    "named": false
+  },
+  {
+    "type": "byte",
+    "named": false
+  },
+  {
+    "type": "ch",
+    "named": false
+  },
+  {
+    "type": "cl",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "control_directive",
     "named": true
+  },
+  {
+    "type": "cr0",
+    "named": false
+  },
+  {
+    "type": "cr2",
+    "named": false
+  },
+  {
+    "type": "cr3",
+    "named": false
+  },
+  {
+    "type": "cr4",
+    "named": false
+  },
+  {
+    "type": "cs",
+    "named": false
+  },
+  {
+    "type": "cx",
+    "named": false
   },
   {
     "type": "db",
@@ -215,7 +942,59 @@
     "named": false
   },
   {
+    "type": "dh",
+    "named": false
+  },
+  {
+    "type": "di",
+    "named": false
+  },
+  {
+    "type": "div",
+    "named": false
+  },
+  {
+    "type": "dl",
+    "named": false
+  },
+  {
     "type": "dq",
+    "named": false
+  },
+  {
+    "type": "dqqword",
+    "named": false
+  },
+  {
+    "type": "dqword",
+    "named": false
+  },
+  {
+    "type": "dr0",
+    "named": false
+  },
+  {
+    "type": "dr1",
+    "named": false
+  },
+  {
+    "type": "dr2",
+    "named": false
+  },
+  {
+    "type": "dr3",
+    "named": false
+  },
+  {
+    "type": "dr6",
+    "named": false
+  },
+  {
+    "type": "dr7",
+    "named": false
+  },
+  {
+    "type": "ds",
     "named": false
   },
   {
@@ -227,7 +1006,67 @@
     "named": false
   },
   {
+    "type": "dword",
+    "named": false
+  },
+  {
+    "type": "dx",
+    "named": false
+  },
+  {
+    "type": "eax",
+    "named": false
+  },
+  {
+    "type": "ebp",
+    "named": false
+  },
+  {
+    "type": "ebx",
+    "named": false
+  },
+  {
+    "type": "ecx",
+    "named": false
+  },
+  {
+    "type": "edi",
+    "named": false
+  },
+  {
+    "type": "edx",
+    "named": false
+  },
+  {
+    "type": "eflags",
+    "named": false
+  },
+  {
+    "type": "elf",
+    "named": false
+  },
+  {
+    "type": "elf64",
+    "named": false
+  },
+  {
+    "type": "es",
+    "named": false
+  },
+  {
+    "type": "esi",
+    "named": false
+  },
+  {
+    "type": "esp",
+    "named": false
+  },
+  {
     "type": "executable",
+    "named": false
+  },
+  {
+    "type": "flags",
     "named": false
   },
   {
@@ -235,11 +1074,139 @@
     "named": false
   },
   {
+    "type": "fs",
+    "named": false
+  },
+  {
+    "type": "gs",
+    "named": false
+  },
+  {
     "type": "identifier",
     "named": true
   },
   {
+    "type": "idiv",
+    "named": false
+  },
+  {
+    "type": "imul",
+    "named": false
+  },
+  {
+    "type": "k0",
+    "named": false
+  },
+  {
+    "type": "k1",
+    "named": false
+  },
+  {
+    "type": "k2",
+    "named": false
+  },
+  {
+    "type": "k3",
+    "named": false
+  },
+  {
+    "type": "k4",
+    "named": false
+  },
+  {
+    "type": "k5",
+    "named": false
+  },
+  {
+    "type": "k6",
+    "named": false
+  },
+  {
+    "type": "k7",
+    "named": false
+  },
+  {
+    "type": "mm0",
+    "named": false
+  },
+  {
+    "type": "mm1",
+    "named": false
+  },
+  {
+    "type": "mm10",
+    "named": false
+  },
+  {
+    "type": "mm11",
+    "named": false
+  },
+  {
+    "type": "mm12",
+    "named": false
+  },
+  {
+    "type": "mm13",
+    "named": false
+  },
+  {
+    "type": "mm14",
+    "named": false
+  },
+  {
+    "type": "mm15",
+    "named": false
+  },
+  {
+    "type": "mm2",
+    "named": false
+  },
+  {
+    "type": "mm3",
+    "named": false
+  },
+  {
+    "type": "mm4",
+    "named": false
+  },
+  {
+    "type": "mm5",
+    "named": false
+  },
+  {
+    "type": "mm6",
+    "named": false
+  },
+  {
+    "type": "mm7",
+    "named": false
+  },
+  {
+    "type": "mm8",
+    "named": false
+  },
+  {
+    "type": "mm9",
+    "named": false
+  },
+  {
     "type": "mov",
+    "named": false
+  },
+  {
+    "type": "movb",
+    "named": false
+  },
+  {
+    "type": "movd",
+    "named": false
+  },
+  {
+    "type": "movdir64b",
+    "named": false
+  },
+  {
+    "type": "movq",
     "named": false
   },
   {
@@ -247,7 +1214,35 @@
     "named": false
   },
   {
+    "type": "movt",
+    "named": false
+  },
+  {
+    "type": "movw",
+    "named": false
+  },
+  {
     "type": "movzx",
+    "named": false
+  },
+  {
+    "type": "ms coff",
+    "named": false
+  },
+  {
+    "type": "mul",
+    "named": false
+  },
+  {
+    "type": "mulps",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "or",
     "named": false
   },
   {
@@ -255,7 +1250,55 @@
     "named": true
   },
   {
+    "type": "pxor",
+    "named": false
+  },
+  {
+    "type": "qqword",
+    "named": false
+  },
+  {
+    "type": "qword",
+    "named": false
+  },
+  {
+    "type": "rax",
+    "named": false
+  },
+  {
+    "type": "rbp",
+    "named": false
+  },
+  {
+    "type": "rbx",
+    "named": false
+  },
+  {
+    "type": "rcx",
+    "named": false
+  },
+  {
+    "type": "rdi",
+    "named": false
+  },
+  {
+    "type": "rdx",
+    "named": false
+  },
+  {
     "type": "readable",
+    "named": false
+  },
+  {
+    "type": "rflags",
+    "named": false
+  },
+  {
+    "type": "rsi",
+    "named": false
+  },
+  {
+    "type": "rsp",
     "named": false
   },
   {
@@ -267,7 +1310,283 @@
     "named": false
   },
   {
+    "type": "shufps",
+    "named": false
+  },
+  {
+    "type": "si",
+    "named": false
+  },
+  {
+    "type": "sp",
+    "named": false
+  },
+  {
+    "type": "ss",
+    "named": false
+  },
+  {
+    "type": "st0",
+    "named": false
+  },
+  {
+    "type": "st1",
+    "named": false
+  },
+  {
+    "type": "st2",
+    "named": false
+  },
+  {
+    "type": "st3",
+    "named": false
+  },
+  {
+    "type": "st4",
+    "named": false
+  },
+  {
+    "type": "st5",
+    "named": false
+  },
+  {
+    "type": "st6",
+    "named": false
+  },
+  {
+    "type": "st7",
+    "named": false
+  },
+  {
+    "type": "sub",
+    "named": false
+  },
+  {
+    "type": "syscall",
+    "named": false
+  },
+  {
+    "type": "tbyte",
+    "named": false
+  },
+  {
+    "type": "tword",
+    "named": false
+  },
+  {
+    "type": "word",
+    "named": false
+  },
+  {
     "type": "writeable",
+    "named": false
+  },
+  {
+    "type": "xmm0",
+    "named": false
+  },
+  {
+    "type": "xmm1",
+    "named": false
+  },
+  {
+    "type": "xmm10",
+    "named": false
+  },
+  {
+    "type": "xmm11",
+    "named": false
+  },
+  {
+    "type": "xmm12",
+    "named": false
+  },
+  {
+    "type": "xmm13",
+    "named": false
+  },
+  {
+    "type": "xmm14",
+    "named": false
+  },
+  {
+    "type": "xmm15",
+    "named": false
+  },
+  {
+    "type": "xmm2",
+    "named": false
+  },
+  {
+    "type": "xmm3",
+    "named": false
+  },
+  {
+    "type": "xmm4",
+    "named": false
+  },
+  {
+    "type": "xmm5",
+    "named": false
+  },
+  {
+    "type": "xmm6",
+    "named": false
+  },
+  {
+    "type": "xmm7",
+    "named": false
+  },
+  {
+    "type": "xmm8",
+    "named": false
+  },
+  {
+    "type": "xmm9",
+    "named": false
+  },
+  {
+    "type": "xor",
+    "named": false
+  },
+  {
+    "type": "xword",
+    "named": false
+  },
+  {
+    "type": "ymm0",
+    "named": false
+  },
+  {
+    "type": "ymm1",
+    "named": false
+  },
+  {
+    "type": "ymm10",
+    "named": false
+  },
+  {
+    "type": "ymm11",
+    "named": false
+  },
+  {
+    "type": "ymm12",
+    "named": false
+  },
+  {
+    "type": "ymm13",
+    "named": false
+  },
+  {
+    "type": "ymm14",
+    "named": false
+  },
+  {
+    "type": "ymm15",
+    "named": false
+  },
+  {
+    "type": "ymm2",
+    "named": false
+  },
+  {
+    "type": "ymm3",
+    "named": false
+  },
+  {
+    "type": "ymm4",
+    "named": false
+  },
+  {
+    "type": "ymm5",
+    "named": false
+  },
+  {
+    "type": "ymm6",
+    "named": false
+  },
+  {
+    "type": "ymm7",
+    "named": false
+  },
+  {
+    "type": "ymm8",
+    "named": false
+  },
+  {
+    "type": "ymm9",
+    "named": false
+  },
+  {
+    "type": "yword",
+    "named": false
+  },
+  {
+    "type": "zmm0",
+    "named": false
+  },
+  {
+    "type": "zmm1",
+    "named": false
+  },
+  {
+    "type": "zmm10",
+    "named": false
+  },
+  {
+    "type": "zmm11",
+    "named": false
+  },
+  {
+    "type": "zmm12",
+    "named": false
+  },
+  {
+    "type": "zmm13",
+    "named": false
+  },
+  {
+    "type": "zmm14",
+    "named": false
+  },
+  {
+    "type": "zmm15",
+    "named": false
+  },
+  {
+    "type": "zmm2",
+    "named": false
+  },
+  {
+    "type": "zmm3",
+    "named": false
+  },
+  {
+    "type": "zmm4",
+    "named": false
+  },
+  {
+    "type": "zmm5",
+    "named": false
+  },
+  {
+    "type": "zmm6",
+    "named": false
+  },
+  {
+    "type": "zmm7",
+    "named": false
+  },
+  {
+    "type": "zmm8",
+    "named": false
+  },
+  {
+    "type": "zmm9",
+    "named": false
+  },
+  {
+    "type": "zword",
     "named": false
   }
 ]

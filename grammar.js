@@ -7,22 +7,80 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+const non_stdregs = [
+  "si",
+  "di",
+  "sp",
+  "bp",
+  "eax",
+  "ebx",
+  "ecx",
+  "edx",
+  "esi",
+  "edi",
+  "esp",
+  "ebp",
+  "rax",
+  "rbx",
+  "rcx",
+  "rdx",
+  "rsi",
+  "rdi",
+  "rsp",
+  "rbp",
+  "flags",
+  "eflags",
+  "rflags",
+  "cs",
+  "ds",
+  "ss",
+  "es",
+  "fs",
+  "gs",
+]
+
+const x86_instructions = [
+  "syscall",
+  "aaa",
+  "aad",
+  "aam",
+  "add",
+  "sub",
+  "mul",
+  "imul",
+  "div",
+  "idiv",
+  "mov",
+  "movb",
+  "movw",
+  "movd",
+  "movq",
+  "movt",
+  "movzx",
+  "movsx",
+  "movdir64b",
+  "shufps",
+  "or",
+  "and",
+  "not",
+  "xor",
+  "pxor",
+  "addps",
+  "mulps",
+]
+
 module.exports = grammar({
   name: "fasm",
 
   extras: $ => [
     $.comment,
-    /\s|\r?\n/
+    /\s/
   ],
 
   rules: {
-    // TODO: add the actual grammar rules
     source_file: $ => repeat($._source_line),
 
-    comment: $ => seq(
-       /;.*/,
-       $._line_end 
-    ),
+    comment: $ => /;.*/,
 
     _line_end: $ => /\r?\n/,
 
@@ -48,33 +106,52 @@ module.exports = grammar({
 
     instruction: $ => seq(
       $.actual_instruction,
+      optional($._size_indicators),
       optional($.operands),
     ),
 
+    _size_indicators: $ => choice(
+      ...ci([
+        "byte",
+        "word",
+        "dword",
+        "qword",
+        "tbyte",
+        "tword",
+        "dqword",
+        "xword",
+        "qqword",
+        "yword",
+        "dqqword",
+        "zword",
+      ]),
+    ),
+
     data_definition: $ => seq(
-      $.identifier,
+      $.label,
       $.data_directive,
       $.value
     ),
 
     label: $ => seq(
       $.identifier,
-      optional(":")
+      optional(":"),
     ),
 
     format_directive: $ => seq(
-      "format",
+      choice(...ci(["format"])),
       $._valid_format,
       optional($._valid_format_suffix),
+      optional($._integer)
     ),
 
     section_directive: $ => choice(
       seq(
-        "section",
-        /".*"/,
-        optional($._segment_flags)
+        choice(...ci(["section"])),
+        choice(/".*"/, /'.*'/),
+        repeat($._segment_flags)
       ), seq(
-        "segment",
+        choice(...ci(["segment"])),
         repeat1($._segment_flags)
       )
     ),
@@ -84,42 +161,37 @@ module.exports = grammar({
     prepoc_directive: $ => /prepoc/,
 
     actual_instruction: $ => choice(
-      "mov",
-      "movsx",
-      "movzx",
+      ...ci(x86_instructions),
     ),
 
     operands: $ => $.identifier_or_registers,
 
-    identifier: $ => /[a-z]+/,
+    identifier: $ => /[a-zA-Z][a-zA-Z0-9]*/,
 
     data_directive: $ => choice(
-      "db",
-      "dw",
-      "dd",
-      "dq",
-      "dt",
+      ...ci(["db", "dw", "dd", "dq", "dt"]),
     ),
 
     value: $ => choice(
       $.identifier,
-      /\d+/
+      $._integer,
+      $._floats
     ),
 
+    _floats: $ => /\d*\.?\d+/,
+
+    _integer: $ => /\d+/,
+
     _valid_format: $ => choice(
-      "ELF",
-      "ELF32"
+      ...ci(["elf", "elf64", "bin", "ms coff"])
     ),
 
     _valid_format_suffix: $ => choice(
-      "executable",
-      "COFF"
+      ...ci(["executable"]),
     ),
 
     _segment_flags: $ => choice(
-      "readable",
-      "writeable",
-      "executable"
+      ...ci(["readable", "writeable", "executable"])
     ),
 
     identifier_or_registers: $ => choice(
@@ -128,10 +200,48 @@ module.exports = grammar({
     ),
 
     _registers: $ => choice(
-      "al",
-      "ah",
-      "bl",
-      "bh"
+      ...non_stdregs,
+      ...congenreg("a", ["l", "h", "x"]),
+      ...congenreg("b", ["l", "h", "x"]),
+      ...congenreg("c", ["l", "h", "x"]),
+      ...congenreg("d", ["l", "h", "x"]),
+      ...conreg("mm", 0, 15),
+      ...conreg("xmm", 0, 15),
+      ...conreg("ymm", 0, 15),
+      ...conreg("zmm", 0, 15),
+      ...conreg("dr", 0, 3),
+      ...conreg("dr", 6, 7),
+      ...conreg("st", 0, 7),
+      ...conreg("cr", 0, 0),
+      ...conreg("cr", 2, 4),
+      ...conreg("k", 0, 7),
+      ...conreg("bnd", 0, 4),
     ),
   }
 });
+
+function ci(array) {
+  array.forEach(ele => {
+    array.push(ele.toUpperCase())
+  })
+
+  return array
+}
+
+function conreg(prefix, start, end) {
+  let array = []
+  for (let i = start; i <= end; i++) {
+    array.push(prefix + i)
+  }
+
+  return ci(array)
+}
+
+function congenreg(prefix, suffixes) {
+  let array = []
+  suffixes.forEach(suffix => {
+    array.push(prefix + suffix)
+  })
+
+  return ci(array)
+}

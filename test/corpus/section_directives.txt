@@ -1,0 +1,44 @@
+=======================
+sections
+=======================
+
+section ".text"
+section '.text'
+section ".text" readable
+section '.text' readable
+section ".text" readable executable
+
+-----------------------
+
+(source_file
+    (section_directive)
+    (section_directive)
+    (section_directive)
+    (section_directive)
+    (section_directive))
+
+=========================
+segments with flags
+=========================
+
+segment readable
+segment readable writeable
+segment readable writeable executable
+
+-------------------------
+
+(source_file
+    (section_directive)
+    (section_directive)
+    (section_directive))
+
+=========================
+segment without flags
+:error
+=========================
+
+segment
+segment invalid_flag
+
+-------------------------
+
